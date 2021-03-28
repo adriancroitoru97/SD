@@ -84,6 +84,8 @@ dll_add_nth_node(doubly_linked_list_t* list, unsigned int n, const void* data)
 			nextnode = current->next;
 		} else {
 			list->head = new_node;
+            list->head->next = new_node;
+            list->head->prev = new_node;
 			list->size = 1;
 			return;
 		}
@@ -98,6 +100,8 @@ dll_add_nth_node(doubly_linked_list_t* list, unsigned int n, const void* data)
 			prevnode = current->prev;
 		} else {
 			list->head = new_node;
+            list->head->next = new_node;
+            list->head->prev = new_node;
 			list->size = 1;
 			return;
 		}
@@ -248,9 +252,10 @@ void
 dll_print_ints_left_circular(dll_node_t* start)
 {
     dll_node_t *current = start;
-
+    
     printf("%d ", *(int *)current->data);
     current = current->prev;
+
     while (current != start) {
     	printf("%d ", *(int *)current->data);
     	current = current->prev;
@@ -273,6 +278,7 @@ dll_print_ints_right_circular(dll_node_t* start)
 
     printf("%d ", *(int *)current->data);
     current = current->next;
+
     while (current != start) {
     	printf("%d ", *(int *)current->data);
     	current = current->next;

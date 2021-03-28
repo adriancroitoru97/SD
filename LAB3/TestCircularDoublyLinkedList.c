@@ -48,6 +48,16 @@ int main() {
             dll_free(&doublyLinkedList);
             break;
         }
+        if(strcmp(command, "circl") == 0){
+            scanf("%ld", &pos);
+            dll_print_ints_left_circular(dll_get_nth_node(doublyLinkedList, pos));
+            break;
+        }
+        if(strcmp(command, "circr") == 0){
+            scanf("%ld", &pos);
+            dll_print_ints_right_circular(dll_get_nth_node(doublyLinkedList, pos));
+            break;
+        }
     }
     return 0;
 }
