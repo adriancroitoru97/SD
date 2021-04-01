@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "/home/student/Desktop/TEMA1/cdll.h"
-#include "/home/student/Desktop/TEMA1/planet.h"
-#include "/home/student/Desktop/TEMA1/operations.h"
+#include "cdll.h"
+#include "planet.h"
+#include "operations.h"
 
 #define MSL 255  /* MAX_STRING_LENGTH */
 

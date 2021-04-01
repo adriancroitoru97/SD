@@ -6,8 +6,8 @@
  * https://ocw.cs.pub.ro/courses/so/laboratoare/resurse/die
  */
 
-#ifndef _HOME_STUDENT_DESKTOP_TEMA1_UTILS_H_
-#define _HOME_STUDENT_DESKTOP_TEMA1_UTILS_H_
+#ifndef UTILS_H_
+#define UTILS_H_
 
 #include <errno.h>
 #include <stdio.h>
@@ -23,4 +23,4 @@
         }                                                                      \
     } while (0)
 
-#endif  // _HOME_STUDENT_DESKTOP_TEMA1_UTILS_H_
+#endif  // UTILS_H_

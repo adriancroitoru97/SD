@@ -1,7 +1,7 @@
 // Copyright 2021 Adrian-Valeriu Croitoru
 
-#ifndef _HOME_STUDENT_DESKTOP_TEMA1_PLANET_H_
-#define _HOME_STUDENT_DESKTOP_TEMA1_PLANET_H_
+#ifndef PLANET_H_
+#define PLANET_H_
 
 #define MSL 255  /* MAX_STRING_LENGTH */
 
@@ -13,4 +13,4 @@ struct planet
     doubly_linked_list_t *shield;
 };
 
-#endif  // _HOME_STUDENT_DESKTOP_TEMA1_PLANET_H_
+#endif  // PLANET_H_

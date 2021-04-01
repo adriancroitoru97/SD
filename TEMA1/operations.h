@@ -1,7 +1,7 @@
 // Copyright 2021 Adrian-Valeriu Croitoru
 
-#ifndef _HOME_STUDENT_DESKTOP_TEMA1_OPERATIONS_H_
-#define _HOME_STUDENT_DESKTOP_TEMA1_OPERATIONS_H_
+#ifndef OPERATIONS_H_
+#define OPERATIONS_H_
 
 void
 add(doubly_linked_list_t *galaxy, char name[], int index, int shields);
@@ -27,4 +27,4 @@ rot(doubly_linked_list_t *galaxy, int index, char mode, int units);
 void
 shw(doubly_linked_list_t *galaxy, int index);
 
-#endif  // _HOME_STUDENT_DESKTOP_TEMA1_OPERATIONS_H_
+#endif  // OPERATIONS_H_

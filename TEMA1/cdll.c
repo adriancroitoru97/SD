@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "/home/student/Desktop/TEMA1/cdll.h"
-#include "/home/student/Desktop/TEMA1/utils.h"
+#include "cdll.h"
+#include "utils.h"
 
 doubly_linked_list_t*
 dll_create(unsigned int data_size)

@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "/home/student/Desktop/TEMA1/cdll.h"
-#include "/home/student/Desktop/TEMA1/planet.h"
-#include "/home/student/Desktop/TEMA1/operations.h"
+#include "cdll.h"
+#include "planet.h"
+#include "operations.h"
 
 void
 add(doubly_linked_list_t *galaxy, char name[], int index, int shields)
@@ -72,7 +72,6 @@ upg(doubly_linked_list_t *galaxy, int index, int shield, int value)
 	/* se upgradeaza valoarea efectiva a scutului */
 	int *current_shield_value = current_shield->data;
 	*current_shield_value = (*current_shield_value) + value;
-	memcpy(current_shield->data, current_shield_value, sizeof(int));
 }
 
 void
@@ -145,8 +144,6 @@ col(doubly_linked_list_t *galaxy, int index1, int index2)
 	int *col_shield2_value = col_shield2->data;
 	*col_shield1_value = *col_shield1_value - 1;
 	*col_shield2_value = *col_shield2_value - 1;
-	memcpy(col_shield1->data, col_shield1_value, sizeof(int));
-	memcpy(col_shield2->data, col_shield2_value, sizeof(int));
 
 	/* se verifica daca vreo planeta a implodat,
 	   iar in caz pozitiv se elimina din galaxie */

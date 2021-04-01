@@ -1,7 +1,7 @@
 // Copyright 2021 Adrian-Valeriu Croitoru
 
-#ifndef _HOME_STUDENT_DESKTOP_TEMA1_CDLL_H_
-#define _HOME_STUDENT_DESKTOP_TEMA1_CDLL_H_
+#ifndef CDLL_H_
+#define CDLL_H_
 
 typedef struct dll_node_t dll_node_t;
 struct dll_node_t
@@ -48,4 +48,4 @@ dll_print_ints_left_circular(dll_node_t *start);
 void
 dll_print_ints_right_circular(dll_node_t *start);
 
-#endif  // _HOME_STUDENT_DESKTOP_TEMA1_CDLL_H_
+#endif  // CDLL_H_
