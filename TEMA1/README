@@ -1,0 +1,62 @@
+# Copyright 2021 Adrian-Valeriu Croitoru
+
+## Structuri de Date - Tema #1 - The Galactic War
+
+
+*A fost folosita implementarea listei circulare dublu inlantuite(CDLL) generice
+ realizata in cadrul laboratorului #2.
+*A fost folosit headerul "utils.h" preluat din cadrul resurselor utile ale
+ laboratorului.
+
+
+*Galaxia este reprezentata de o CDLL, fiecare planeta fiind un nod.
+ Fiind vorba de o CDLL generica, am definit o structura planet in care
+ am stocat informatiile despre o planeta. De fiecare data este parsata
+ pointerului void *data adresa acestei structuri planet.
+*Fiecare planeta are mai multe scuturi, reprezentate tot printr-o CDLL generica
+
+
+*Operatii:
+
+	### ADD - Se defineste *added_planet, unde voi stoca informatiile aferente
+			  planetei de adaugat. Ma folosesc de functiile de la CDLL pentru a
+			  initializa planeta.
+
+	### BLH - Se preia printr-un cast de la void* la planet* informatia din
+			  planeta de eliminat. Se foloseste functia dll_rm_nth_node pentru
+			  a elimina planeta respectiva. Se da free la memorie.
+			  Parametrul mode poate lua valorile 0 sau 1, astfel:
+			  	1 - functia este apelata din main, afiseaza mesajul normal
+			  	0 - functia este apelata din COL, nu se afiseaza niciun mesaj,
+			  		intrucat este afisat deja un mesaj in COL
+
+	### UPG - Prin dll_get_nth_node se obtin atat planeta curenta, cat si
+			  scutul curent. Valoarea scutului curent se stocheaza intr-un
+			  int* prin cast de la void*. Se face upgrade valorii din int*,
+			  iar apoi se copiaza cu memcpy noua valoare in scutul curent.
+
+	### EXP - Se obtin planeta curenta, respectiv informatiile aferente ei,
+			  Se adauga la finalul listei de scuturi noul scut.
+
+	### RMV - Se obtin planeta curenta, respectiv informatiile aferente si se
+			  foloseste functia dll_rm_nth_node pentru a elimina scutul
+			  precizat. La final se da free la memoria aferenta acestui scut.
+
+	### COL - Se obtin planetele de pe pozitiile date, iar apoi datele stocate
+			  in nodurile respective ale galaxiei. Se memoreaza adresele celor
+			  doua scuturi care urmeaza sa se ciocneasca in *col_shield1 si
+			  *col_shield2. Se scad valorile celor doua scuturi cu cate 1, iar
+			  apoi se verifica daca vreunul din scuturi a ajuns la o valoare
+			  negativa. In caz pozitiv, se elimina planeta/planetele respective
+			  prin functia BLH, anterior creata.
+
+	### ROT - Se obtine planeta aferenta si informatia din void *data - ul ei
+			  Numarul de rotiri N e limitat la N % (size-ul listei de scuturi),
+			  intrucat scuturile fac parte dintr-o CDLL si dupa N rotiri se va
+			  ajunge in pozitia initiala.
+			  Fiind vorba de o CDLL, simpla schimbare a head-ului listei de
+			  scuturi este suficienta pentru a o roti.
+
+	### SHW - Se obtine prin dll_get_nth_node nodul(planeta) curent al galaxiei
+			  Se face cast de la void* la planet* pentru a se accesa structura
+			  aferenta datelor planetei. Se afiseaza informatiile cerute.
