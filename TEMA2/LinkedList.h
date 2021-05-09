@@ -1,16 +1,16 @@
-#ifndef __LINKED_LIST_H_
-#define __LINKED_LIST_H_
+/* Copyright 2021 Adrian Croitoru */
+
+#ifndef LINKEDLIST_H_
+#define LINKEDLIST_H_
 
 typedef struct ll_node_t ll_node_t;
-struct ll_node_t
-{
+struct ll_node_t {
     void* data;
     ll_node_t* next;
 };
 
 typedef struct linked_list_t linked_list_t;
-struct linked_list_t
-{
+struct linked_list_t {
     ll_node_t* head;
     unsigned int data_size;
     unsigned int size;
@@ -37,4 +37,4 @@ ll_print_int(linked_list_t* list);
 void
 ll_print_string(linked_list_t* list);
 
-#endif /* __LINKED_LIST_H_ */
+#endif  /* LINKEDLIST_H_ */

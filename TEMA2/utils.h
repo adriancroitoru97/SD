@@ -1,11 +1,7 @@
-/**
- * Useful structures/macros
- *
- * https://ocw.cs.pub.ro/courses/so/laboratoare/resurse/die
- */
+/* Copyright 2021 ACS UPB */
 
-#ifndef __UTILS_H_
-#define __UTILS_H_
+#ifndef UTILS_H_
+#define UTILS_H_
 
 #include <errno.h>
 #include <stdio.h>
@@ -21,4 +17,4 @@
         }                                                                      \
     } while (0)
 
-#endif /* __UTILS_H_ */
+#endif /* UTILS_H_ */
