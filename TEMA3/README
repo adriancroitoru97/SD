@@ -1,0 +1,64 @@
+# Copyright 2021 Adrian Croitoru & Tudor Selea
+
+## Structuri de Date - Tema #3 - Rope Tree
+
+
+
+### concat:
+	- Se creeaza un nod care va fi root-ul noului Rope Tree
+	- Primul Rope Tree si al doilea Rope Tree dati ca parametri vor
+	  reprezenta copilul stang, respectiv copilul drept al nodului
+	  creat anterior
+
+### indexRope:
+	- Se afla caracterul de la pozitia idx din Rope Tree
+	- Se parcurge rope-ul si se folosesc weight-urile nodurilor
+	- Se modifica idx_cpy astfel incat, in final, acesta va fi egal cu
+	  pozitia caracterului din string-ul aflat pe frunza corespunzatoare
+
+### search:
+	- Se cauta stringul din intervalul [start,end)
+	- Se obtine fiecare caracter al stringului cautat folosind functia
+	  indexRope
+
+### split:
+	- Functie de spargere, intr-un anumit punct, a Rope Tree-ului
+	  initial, in doua noi Rope Tree-uri
+	- Se trateaza cazurile in care taierea se face inainte sau dupa intregul
+	  Rope Tree ---> sirul de caractere ramane neschimbat
+	- Se trateaza cazul in care taierea s-ar face prin interiorul unui
+	  string aflat pe o anumita frunza:
+	  	- Se aplica un algoritm similar cu cel de la indexRope pentru a
+	  	  determina frunza respectiva
+	  	- Stringul aferent acesteia va fi "spart" in 2 noi frunze pentru
+	  	  ca taierea sa se realizeze printre acestea
+	  	- Noile frunze vor fi legate de vechiul nod, ce a fost spart, urmand
+	  	  ca acesta sa fie rebalansat si initializat cu EMPTY
+	- Se aplica algoritmul general, astfel:
+		- Se foloseste functia tree_copy, pentru a face o copie in memorie a
+		  tree-ului ce urmeaza a fi split-uit
+		- Se parcurge in mod recursiv aceasta copie
+		- Se construieste in parent subtree-ul drept, care va fi auto-balansat
+		  datorita folosirii functiei concat in construirea acestuia
+		- Subtree-ul stang va fi construit din copia tree-ului initial, prin
+		  taierea legaturilor spre dreapta. In acest caz, trebuie tinut cont
+		  de weight-urile fiecarui nod, care se vor modifica in urma ruperii
+		  link-urilor
+
+### insert:
+	- Se insereaza stringul str pe pozitia idx in Rope Tree
+	- Astfel, se sparge Rope Tree-ul initial in 2 Rope Tree-uri mai mici
+	- Se concateneaza prima parte a Rope Tree-ului initial
+	  cu nodul in care se afla stringul str
+	- Se concateneaza Rope Tree-ul obtinut mai sus cu
+	  a doua parte a Rope Tree-ului initial
+
+### delete:
+	- Se elimina sirul de lungime len incepand cu indexul start din tree
+	- Astfel, se sparge Rope Tree-ul initial, in punctul "start",
+	  dat ca parametru, in doua Rope Tree-uri mai mici
+	- Se sparge a doua parte a Rope Tree-ului initial, in punctul
+	  "start + lenght", in doua Rope Tree-uri mai mici
+	- Se concateneaza prima parte a Rope Tree-ului initial cu a doua parte a 
+	  Rope Tree-ului obtinut la pasul anterior pentru a elimina stringul 
+	  din intervalul [start, start + lenght)
